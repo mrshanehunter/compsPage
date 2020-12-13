@@ -1,0 +1,66 @@
+html {
+  background-color: #525453;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  box-sizing: inherit;
+  margin: inherit;
+  padding: inherit;
+}
+
+body p {
+  font-size: 1rem;
+}
+
+h1 {
+  color: white;
+  font-family: "halyard-display", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+h2, h4, h6 {
+  color: white;
+  font-family: "nazare", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  text-shadow: none;
+  color: white;
+  text-decoration: none;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex-grow: 1;
+  margin: 1rem auto;
+  width: 90%;
+  padding: 0 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 80%;
+    min-height: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  html {
+    font-size: 100%;
+  }
+}
