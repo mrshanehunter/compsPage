@@ -19,6 +19,7 @@ const Layout = ({ children }) => (
       <>
         <Helmet title={data.site.siteMetadata.title}>
           <html lang="en" /> <meta charSet="utf-8" />
+          <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
         </Helmet>
         <div className="site">
           <Nav siteTitle={data.site.siteMetadata.title} />
