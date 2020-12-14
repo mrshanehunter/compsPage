@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 require("dotenv").config()
-const fetch = require("node-fetch")
 const path = require(`path`)
 const firebase = require("firebase")
 require("firebase/firestore")

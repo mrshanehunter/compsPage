@@ -1,41 +1,59 @@
 import React, { Component } from "react"
 import EntryForm from "./EntryForm"
-import db from "../utils/db";
-
+import firebase from "firebase"
+import "firebase/firestore"
 
 export default class Form extends Component {
+  state = {
+    db: null,
+  }
+  componentDidMount() {
+    firebase.initializeApp({
+      apiKey: "AIzaSyAtWu7xsWjI6FSEIasUeVtS3ze_9er8Ie4",
+      authDomain: "gatsby-comps-page.firebaseapp.com",
+      projectId: "gatsby-comps-page",
+    })
+    const db = firebase.firestore()
+    this.setState({ db })
+  }
 
-  emailRef = React.createRef();
-  firstNameRef = React.createRef();
-  lastNameRef = React.createRef();
-  phoneRef = React.createRef();
-  pcodeRef = React.createRef();
-  resStateRef = React.createRef();
-  answerRef = React.createRef();
-  tandcRef = React.createRef();
-  
-  createEntry = (e) => {
-   e.preventDefault();
-   db.collection("Entries").add({
-      email: this.emailRef.current.value,
-      firstName: this.firstNameRef.current.value,
-      lastName: this.lastNameRef.current.value,
-      phone: this.phoneRef.current.value,
-      pcode: this.pcodeRef.current.value,
-      resState: this.resStateRef.current.value,
-      answer: this.answerRef.current.value,
-      tandc: this.tandcRef.current.value,
-    })
-    .then(function(docRef){
-      console.log("Document written with ID: ", docRef.id);
-      alert("Good Luck!");
-    })
-    .catch(function(error) {
-      console.log("Error adding document:", error);
-    });
+  componentWillUnmount() {
+    const unsubscribe = this.state.db;
+    unsubscribe();
+  }
+
+  emailRef = React.createRef()
+  firstNameRef = React.createRef()
+  lastNameRef = React.createRef()
+  phoneRef = React.createRef()
+  pcodeRef = React.createRef()
+  resStateRef = React.createRef()
+  answerRef = React.createRef()
+  tandcRef = React.createRef()
+
+  createEntry = e => {
+    e.preventDefault()
+    this.state.db
+      .collection("Entries")
+      .add({
+        email: this.emailRef.current.value,
+        firstName: this.firstNameRef.current.value,
+        lastName: this.lastNameRef.current.value,
+        phone: this.phoneRef.current.value,
+        pcode: this.pcodeRef.current.value,
+        resState: this.resStateRef.current.value,
+        answer: this.answerRef.current.value,
+        tandc: this.tandcRef.current.value,
+      })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id)
+        alert("Good Luck!")
+      })
+      .catch(function (error) {
+        console.log("Error adding document:", error)
+      })
     e.currentTarget.reset();
-  };
-
+   }
 
   render() {
     return (
@@ -73,10 +91,10 @@ export default class Form extends Component {
               id="phone"
               type="tel"
               name="phone"
-             ref={this.phoneRef}
+              ref={this.phoneRef}
               placeholder="Phone Number"
               required
-              minLength="10"
+              minLength="8"
               maxLength="10"
             />
             <input
@@ -122,9 +140,7 @@ export default class Form extends Component {
               />
             </span>
             <span className="text">
-              <label htmlFor="tandc">
-                Agree to the terms and conditions.
-              </label>
+              <label htmlFor="tandc">Agree to the terms and conditions.</label>
             </span>
           </span>
           <button id="button" name="button" type="submit">
