@@ -57,8 +57,8 @@ export default function Home() {
               cover
               to="/enter/"
               direction="left"
-              duration={1}
-              bg="#412456"
+              duration={0.5}
+              bg="#525453"
               style={{ textShadow: `none`, backgroundImage: `none` }}
             >
               <button

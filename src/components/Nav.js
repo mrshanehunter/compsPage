@@ -3,7 +3,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const ListLink = (props) => (
   <li style={{ color: `white`, display: `inline-block`, marginRight: `1rem`}}>
-<AniLink cover to={props.to} direction="left" duration={1} bg="#412456">{props.children}</AniLink>
+<AniLink cover to={props.to} direction="left" duration={0.5} bg="#525453">{props.children}</AniLink>
 </li>
 )
 
@@ -20,7 +20,7 @@ export default function Nav({ children }) {
       gridTemplateColumns: `1fr 2fr`,
 
       }}>
-        <AniLink cover to="/" direction="left" duration={1} bg="#412456" style={{ textShadow: `none`, backgroundImage: `none` }}>
+        <AniLink cover to="/" direction="left" duration={0.5} bg="#525453" style={{ textShadow: `none`, backgroundImage: `none` }}>
         <h3 style={{ color: `white`,marginLeft: `1.5rem`, fontSize: `1.4rem` }}>Landing Page</h3>
         </AniLink>
         <ul style={{ listStyle: `none`, textAlign: `right`, marginRight: `1.5rem`, fontSize: `1.4rem`}} >

@@ -18,7 +18,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Helmet title={data.site.siteMetadata.title}>
-          <html lang="en" />
+          <html lang="en" /> <meta charSet="utf-8" />
         </Helmet>
         <div className="site">
           <Nav siteTitle={data.site.siteMetadata.title} />
