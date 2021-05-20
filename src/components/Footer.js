@@ -17,7 +17,7 @@ export default function Footer() {
       color:`#949393`,
 
       }}>
-        &copy; 2020. All Rights Reserved. Design and Build by <a href="https://thatguyfrommarketing.com">That Guy From Marketing&reg;</a>
+        &copy; {new Date().getFullYear()}. All Rights Reserved. Design and Build by <a href="https://thatguyfrommarketing.com">That Guy From Marketing&reg;</a>
       </footer>
   )
 }
